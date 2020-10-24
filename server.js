@@ -3,18 +3,20 @@ var app = express();
 
 const jwt = require('jsonwebtoken');
 const exjwt = require('express-jwt')
-const bodyParser = require('body-parser');
 
+const bodyParser = require('body-parser');
 const path = require('path');
 var axios = require('axios');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended : true}));
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
     res.setHeader('Access-Control-Allow-Headers','Content-type,Authorization');
     next();
 })
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
+
 
 const PORT = 3000;
 
